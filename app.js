@@ -14,8 +14,9 @@ async function checkBackend() {
     statusEl.textContent = data.ok ? 'Backend online ✅' : 'Backend reachable';
     statusEl.style.color = '#22d3ee';
   } catch(e){
-    statusEl.textContent = 'Backend offline ❌ - start uvicorn app.main:app';
+    statusEl.textContent = 'Backend offline ❌ - ' + e.message;
     statusEl.style.color = '#f87171';
+    console.error('Backend check failed', e);
   }
 }
 
